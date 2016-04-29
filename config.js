@@ -1,8 +1,6 @@
 module.exports = {
     
- "datebase" : "userstory",
+ "datebase" : "ecom",
  "port":process.env.PORT || 3000,
  "secretKey":""
-
-
 }

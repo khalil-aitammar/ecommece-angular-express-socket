@@ -1,14 +1,20 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
 
-var filmSchema = new Schema({
-    name : String,
-    description:String,
-    genre:{ type:String,required:true},
-    password:{type:String,required:true},
-    create_date:{type: Date, default: Date.now},
-    url_img:String
+
+
+var filmSchema = mongoose.Schema({
+    name:{
+        type: String,
+        required: true
+    }
+
 });
 
-module.exports = mongoose.model('film',filmSchema);
+
+
+var Film = module.exports = mongoose.model('film', filmSchema);
+
+module.exports.getFilms= function(callback, limit){
+    Film.find(callback).limit(limit);
+}

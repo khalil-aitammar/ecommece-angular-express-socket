@@ -1,6 +1,5 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
-    morgan = require('morgan'),
     mongoose = require('mongoose');
 var config = require('./config');
 var app = express();
@@ -16,19 +15,28 @@ var app = express();
 });
 
 
-app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+
+var Genre =require('./models/genre');
+var films =require('./models/films');
+
+
+app.get('/', function(req, res){
+    res.send('Please use /api/books or /api/genres');
+});
 
 
 //film
 
 app.get('/api/films', function(req, res){
-    film.getfilms(function(err, films){
+
+    films.getFilms(function(err, films){
+        console.log("je suis film");
         if(err){
             throw err;
         }
-        res.json(film);
+        res.json(films);
+        console.log(films);
     });
 });
 

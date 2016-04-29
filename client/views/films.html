@@ -1,0 +1,22 @@
+
+<div class="panel panel-default" ng-init="getfilms()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Latest film</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+    	<div ng-repeat="film in films">
+    		<div class="col-md-6">
+    			<div class="col-md-6">
+    				<h4>{{film.name}}</h4>
+    				<p>{{film.description}}</p>
+    				<a class="btn btn-primary" href="#/films/details/{{film._id}}">View Details</a>
+    			</div>
+    			<div class="col-md-6">
+    				<img class="thumbnail" src="{{film.url_img}}">
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>
